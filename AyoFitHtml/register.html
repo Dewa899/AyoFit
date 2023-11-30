@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="format.css">
+  <title>Register Page</title>
+  <style>
+    .error-message {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <form id="registrationForm" action="register_action.php" method="post" onsubmit="return validateForm()">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="fullname"><b>Nama</b></label>
+      <input type="text" placeholder="Masukkan Nama" name="fullname" id="fullname" required>
+
+      <label for="birthdate"><b>Tanggal Lahir</b></label>
+      <input type="date" name="birthdate" id="birthdate" required>
+
+      <!-- Grup baru untuk label "Email" -->
+      <div>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Masukkan Email" name="email" id="email" required>
+      </div>
+
+      <label for="uname"><b>Username</b></label>
+      <div id="errorUname" class="error-message"></div>
+
+      <input type="text" placeholder="Masukkan Username" name="uname" id="uname" required>
+<!-- Error message for username -->
+  <div id="errorUname" class="error-message"></div>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Masukkan Password" name="psw" id="psw" required>
+
+      <label for="confirmPsw"><b>Ulangi Password</b></label>
+      <input type="password" placeholder="Ulangi Password" name="confirmPsw" id="confirmPsw" required>
+
+      <!-- Error messages -->
+      <div id="errorFullName" class="error-message"></div>
+      <div id="errorEmail" class="error-message"></div>
+      <div id="errorPassword" class="error-message"></div>
+
+      <button type="submit">Register</button>
+    </div>
+
+    <div class="container">
+      <button type="button" class="cancelbtn" onclick="window.location.href='login.html'">Cancel</button>
+  </div>  
+  </form>
+
+  <script>
+    function validateForm() {
+      // Validasi nama (tidak boleh memuat angka dan karakter spesial)
+      var fullname = document.getElementById('fullname').value;
+      var errorFullName = document.getElementById('errorFullName');
+      if (/\d/.test(fullname) || /[!@#$%^&*(),.?":{}|<>]/.test(fullname)) {
+        errorFullName.innerHTML = 'Nama tidak boleh memuat angka atau karakter spesial';
+        return false;
+      } else {
+        errorFullName.innerHTML = '';
+      }
+  
+      // Validasi username (tidak boleh memuat karakter spesial)
+      var uname = document.getElementById('uname').value;
+      var errorUname = document.getElementById('errorUname');
+      if (/[!@#$%^&*(),.?":{}|<>]/.test(uname)) {
+        errorUname.innerHTML = 'Username tidak boleh memuat karakter spesial';
+        return false;
+      } else {
+      }
+  
+      // Validasi email
+      var email = document.getElementById('email').value;
+      var errorEmail = document.getElementById('errorEmail');
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        errorEmail.innerHTML = 'Format email tidak valid';
+        return false;
+      } else {
+        errorEmail.innerHTML = '';
+      }
+  
+      // Validasi password (harus mengandung angka, huruf, dan karakter spesial)
+      var password = document.getElementById('psw').value;
+      var confirmPsw = document.getElementById('confirmPsw').value;
+      var errorPassword = document.getElementById('errorPassword');
+      var passwordPattern = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*()_+])[0-9a-zA-Z!@#$%^&*()_+]{8,}$/;
+      if (!passwordPattern.test(password)) {
+        errorPassword.innerHTML = 'Password harus mengandung angka, huruf, dan karakter spesial';
+        return false;
+      } else if (password !== confirmPsw) {
+        errorPassword.innerHTML = 'Konfirmasi password tidak sesuai';
+        return false;
+      } else {
+        errorPassword.innerHTML = '';
+      }
+  
+      return true; // Submit form if all validations pass
+    }
+  </script>
+  
+</body>
+</html>
