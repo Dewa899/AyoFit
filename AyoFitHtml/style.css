@@ -1,23 +1,23 @@
-/* Global styling for the body, setting background and centering content */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-    display: flex;
+    font-family: Arial, sans-serif;
+    margin: 1000;
+    padding: 110;
+    background-color: #26335D;
+    color: #333;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    background-color: #26335D; /* Background color */
+    display: grid;
+    place-items: center;
 }
 
-/* Bordered form with modern background */
 form {
-    border-radius: 50px; /* Rounded corners */
+    border-radius: 30px; /* Rounded corners */
     background-color: white; /* Background color */
     color: #834cab; /* Light gray text */
-    width: 50%; /* Adjust the width of the form as needed */
+    width: 100%; /* Adjust the width of the form as needed */
     box-sizing: border-box;
+    padding: 50px;
 }
-
 /* Full-width inputs with soft main color border */
 input[type=text], input[type=password], input[type=date], input[type=email] {
     width: 100%;
@@ -38,7 +38,6 @@ button {
     border: none;
     border-radius: 50px; /* Rounded corners */
     cursor: pointer;
-    width: 100%;
     transition: background 0.3s ease; /* Smooth transition */
 }
 
@@ -92,4 +91,79 @@ span.psw {
     .cancelbtn {
         width: 100%;
     }
+}
+
+
+header {
+    background-color: #26335D;
+    color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.logo {
+    flex-grow: 1;
+}
+
+nav {
+    flex-grow: 2;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.user-actions {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.login-btn,
+.register-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #2DC071;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 800px;
+    margin: 80px auto 20px; /* memberikan ruang untuk header tetap */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+.abstract-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: url('D:/Coding/HTML/AyoFitHtml/bg.png') center/cover no-repeat fixed;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="format.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <form action="action_page.php" method="post">
@@ -9,7 +9,7 @@
       <img src="img_avatar2.png" alt="Avatar" class="avatar">
     </div>
 
-    <div class="container">
+    <div>
       <label for="uname"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" required>
 
@@ -22,11 +22,10 @@
       </label>
     </div>
 
-    <div class="container">
+    <div>
       <!-- Pesan "Tidak punya akun? Register" -->
       <p>Tidak punya akun? <a href="register.html" onclick="window.location.href='register.html'">Register</a></p>
-
-      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="button" class="cancelbtn" onclick="window.location.href='index.html'">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
